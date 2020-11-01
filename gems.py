@@ -1,3 +1,5 @@
+# User: Daniel#EZGRG
+
 import math
 
 def inputInt(message):
