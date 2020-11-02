@@ -6,16 +6,14 @@ def inputInt(message):
     number = input(message)
     if number.isdigit():
         return int(number)
-    else:
+    else: # invalid input
         if number.startswith('-'):
             print("\nNumber must be positive.")
-            return -1 # error code
         elif '.' in number:
             print("\nMust be a whole number.")
-            return -1
         else:
             print("\nContains inappropriate characters.")
-            return -1
+        return -1
 
 def inputCorrect(message):
     while True:
@@ -32,13 +30,13 @@ print("For each question, type your answer and press Enter to confirm.")
 while q == "y":
     items = [90,95,100,105,110]
     print("------------------------------------------------")
-    goal = inputCorrect("\nNumber of items needed: ")
+    goal = inputCorrect("\nNumber of items needed (generally 45000): ")
     cur = inputCorrect("\nCurrent number of items: ")      
     for n in range(2, 7):
         bonus = inputCorrect("\nNumber of bonus items for mission {}: ".format(n))
         items[n-2] += bonus
     while True:
-        remdays = inputCorrect("\nHow many days left (maximum 14)?\n If you played all missions 3 times today,\n type the number of remaining days\n that appears on the event menu.\n Otherwise, add this number by 1. ")
+        remdays = inputCorrect("\nHow many days left (maximum 14)?\n If you played all missions 3 times today,\n type the number of remaining days\n that appears on the event menu.\n Otherwise, add this number by 1.: ")
         if remdays > 14:
             print("\nMaximum number of days left is 14.")
         else:
