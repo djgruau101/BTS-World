@@ -11,6 +11,8 @@ def inputInt(message):
             print("\nNumber must be positive.")
         elif '.' in number:
             print("\nMust be a whole number.")
+        elif number == '':
+            print("\nYou have not entered anything!")
         else:
             print("\nContains inappropriate characters.")
         return -1
@@ -47,11 +49,13 @@ while q == "y":
     perReplay = 3*max(items) # how many items per 15 gems spent
     final = cur + remdays*daily # how many items if spend no gem
     rem = goal - final # remaining number of items
-    print("\nYou will have {} items at the end of the event.".format(final))
+    print("\n************************************************")
+    print("You will have {} items at the end of the event.".format(final))
     if rem <= 0:
         print("\nYou don't need to spend any gem. Yay!♥")
     else:
         nbreplays = math.ceil(rem/perReplay)
         print("{} items to go. Fighting!♥".format(rem))
         print("\nYou need {} gems. Replay mission {} {} times.".format(nbreplays*15, bestMission, nbreplays))
+    print("************************************************")
     q = input("Try again? (y)es/(n)o\n")
