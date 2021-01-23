@@ -1,4 +1,6 @@
 # User: Daniel#EZGRG
+# This is a calculator that calculates the amount of gems
+# you will have to spend to reach 45000 items.
 
 import math
 
