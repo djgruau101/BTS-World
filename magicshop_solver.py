@@ -1361,11 +1361,16 @@ def getRollCall():
         print(rollcallmember._name, end=": ")
     boosttext = '+'
     perc_text = {1.03:"3%", 1.05:"5%", 1.1:"10%"}
+    stattext = str()
+    if rollcallmember.rollcallstat-1 == 5:
+        stattext = "All stats"
+    else:
+        stattext = statsnames[rollcallmember.rollcallstat-1]
     if rollcallmember.rollcallboost < 100:
         boosttext += perc_text[rollcallmember.rollcallboost]
     else:
         boosttext += str(rollcallmember.rollcallboost)
-    print(statsnames[rollcallmember.rollcallstat-1], boosttext)
+    print(stattext, boosttext)
             
 def msmainmenu():
     global rc
