@@ -1045,6 +1045,7 @@ Assume criteria are by member only.'''
         shuffle(self.getMoves())
         movesnames = [members[membernames.index(c.member)].getAbr() for c in self.getMoves()]
         print("Finding card combination...\n")
+        print("If it takes over 1 minute, close and restart the program.\n")
         cardstarget = target-self.groupStatsPts('f') # will help reduce size of dpTable
         critlist = self.getCriteria().copy() # assumed that nbcards >= len(critlist)
         toplay = list()
