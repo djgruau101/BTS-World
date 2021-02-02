@@ -73,9 +73,9 @@ fw = open("BTS_World_{}.txt".format(manager), 'w')
 levels = list()
 for p in groupstats:
     if (p-103)%13 == 0: # level 50+
-        levels.append((p-103)//13)
+        levels.append((p-103)//13+1)
     elif (p-100)%13 == 0:
-        levels.append((p-100)//13)
+        levels.append((p-100)//13+1)
 fw.write(str(levels)[1:-1]+"\n")
 
 for l in c:
