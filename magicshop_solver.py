@@ -1386,7 +1386,7 @@ def msmainmenu():
             "5-6":(ms5m6,63436,2), "5-8":(ms5m8,144459,3), "5-10":(ms5m10,30118,4),
             "5-12":(ms5m12,199870,5), "5-15":(ms5m15,103582,4), "5-17":(ms5m17,202246,6),
             "5-19":(ms5m19,235293,5), "5-21":(ms5m21,98818,3)}
-    print("Hi Manager-nim! Welcome to the Magic Shop solver ♥")
+    print("Hi Manager-nim! Welcome to the Magic Shop Calculator ♥")
     print("So show me, I'll show you~")
     while True:
         print("-----------------------------")
