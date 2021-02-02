@@ -84,4 +84,5 @@ for l in c:
         if i != 8:
             fw.write("; ")
     fw.write('\n')
+yay = input("Successfully created BTS_World_{}.txt, press enter to exit. ".format(manager))
 fw.close()
