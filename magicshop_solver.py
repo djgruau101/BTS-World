@@ -1347,7 +1347,28 @@ ms5m19 = magicshop(5, 19, 1, 3, 4, 2, 6.85, 4.19, 0.27, 0.15, 'V')
 ms5m21 = magicshop(5, 21, 2, 1, 3, 4, 4.41, 3.69, 2.62, 1.19, 'V', "JK")
 #ms5m21.solve(98818, 3, 'f')
 
+def getRollCall():
+    it1 = 1
+    if all([m.rollCalled() for m in members]):
+        print("BTS", end=": ")
+        rollcallmember = members[0]
+    elif not any([m.rollCalled() for m in members]):
+        print("No roll call.")
+        return
+    else:
+        mindex = [m.rollCalled() for m in members].index(True) # there is only one True
+        rollcallmember = members[mindex]
+        print(rollcallmember._name, end=": ")
+    boosttext = '+'
+    perc_text = {1.03:"3%", 1.05:"5%", 1.1:"10%"}
+    if rollcallmember.rollcallboost < 100:
+        boosttext += perc_text[rollcallmember.rollcallboost]
+    else:
+        boosttext += str(rollcallmember.rollcallboost)
+    print(statsnames[rollcallmember.rollcallstat-1], boosttext)
+            
 def msmainmenu():
+    global rc
     ms_m = {"1-2":(ms1m2,16506,1), "1-4":(ms1m4,52129,3), "1-6":(ms1m6,87653,4),
             "1-8":(ms1m8,90552,5), "1-10":(ms1m10,80389,2),"1-13":(ms1m13,104266,4),
             "1-15":(ms1m15,153303,5), "1-17":(ms1m17,146381,6), "1-19":(ms1m19,130712,4),
@@ -1370,6 +1391,11 @@ def msmainmenu():
     while True:
         print("-----------------------------")
         print("MAIN MENU\n")
+        if rc == 'n':
+            print("No roll call.\n")
+        else:
+            getRollCall()
+            print()
         for item in zip(statsnames, groupstatslevel):
             print(item[0], item[1], sep=": level ")
         print()
@@ -1437,32 +1463,42 @@ def msmainmenu():
                     break
                 if option4 == '1':
                     removeRollCall()
+                    rc = 'n'
                 elif option4 == '2':
                     message = "Select a BTS member:\n"
                     for m in members:
                         message += (m._name + " (" + str(members.index(m)+1) + "), ")
-                    message += "BTS (8)\n"
+                    message += "BTS (8)\nOR press Enter to return to main menu: "
                     mb = input(message)
-                    while mb not in [str(n) for n in range(1, 9)]:
+                    while mb not in [str(n) for n in range(1, 9)]+['']:
                         print("\nNumber must be between 1 and 9.\n")
                         mb = input(message)
+                    if mb == '':
+                        break
                     if int(mb) == 9:
                         m = "BTS"
                     else:
                         m = members[int(mb)-1].getAbr()
-                    stat = input("Empathy (1), Passion (2), Stamina (3), Wisdom (4), All stats (5): ")
-                    while stat not in [str(n) for n in range(1, 6)]:
+                    statmessage = "Empathy (1), Passion (2), Stamina (3), Wisdom (4), All stats (5)\nOR press Enter to return to main menu: "
+                    stat = input(statmessage)
+                    while stat not in [str(n) for n in range(1, 6)]+['']:
                         print("\nNumber must be between 1 and 5.\n")
-                        stat = input("Empathy (1), Passion (2), Stamina (3), Wisdom (4), All stats (5): ")
+                        stat = input(statmessage)
+                    if stat == '':
+                        break
                     stat = int(stat)
                     boostlist = [100, 200, 400, 1.03, 1.05, 1.1]
-                    boostindex = input("+100 (1), +200 (2), +400 (3), +3% (4), +5% (5), +10% (6): ")
-                    while boostindex not in [str(n) for n in range(1, 7)]:
+                    boostmessage = "+100 (1), +200 (2), +400 (3), +3% (4), +5% (5), +10% (6)\nOR press Enter to return to main menu: "
+                    boostindex = input(boostmessage)
+                    while boostindex not in [str(n) for n in range(1, 7)]+['']:
                         print("\nNumber must be between 1 and 6.\n")
-                        boostindex = input("+100 (1), +200 (2), +400 (3), +3% (4), +5% (5), +10% (6): ")
+                        boostindex = input(boostmessage)
+                    if boostindex == '':
+                        break
                     boost = boostlist[int(boostindex)-1]
                     print()
                     newRollCall(m, stat, boost)
+                    rc = 'y'
         elif option == '5':
             print("Change agency stat\n")
             while True:
