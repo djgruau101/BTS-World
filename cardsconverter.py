@@ -64,7 +64,7 @@ while curline != '': # process cards
         if (member, str(star), name) in exception[i]:
             strength = i
             break
-    c.append([member, name, star, stats[0], stats[1], stats[2], stats[3], traits[i], level])
+    c.append([member, name, star, stats[0], stats[1], stats[2], stats[3], traits[strength], level])
     curline = fp.readline()
 
 fp.close()
