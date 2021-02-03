@@ -787,7 +787,7 @@ class bmission(missionwithchapter):
     '''BTS Story mission chapter 1-7. Indicate required stats and weakest stat as follows: Empathy = 1, passion = 2, stamina = 3, wisdom = 4.'''
     def __init__(self, chapter, number, reqst1, reqst2=None, weak=None):
         if chapter not in range(1,8):
-            raise ValueError('BTS Story missions have 9 chapters.')
+            raise ValueError('Enter a number between 1 and 7.')
         super().__init__(chapter, number, reqst1, reqst2)
         ###
         if self.getChapter() > 1 and not reqst2:
