@@ -70,7 +70,7 @@ class member(object):
             if self.rollCalled():
                 print("Make sure to input pre-boost stats!!!")
             n = input('Name: ') #string
-            s = input('★: ') #number from 1 to 5
+            s = input('Number of stars: ') #number from 1 to 5
             if not (s in [str(n) for n in range(1,6)]):
                 raise ValueError('Star number must be an integer from 1 to 5.')
             if self.hasCard(n, int(s)):
@@ -87,7 +87,7 @@ class member(object):
             lvl = int(input('Level: '))
             if int(s) in [1,2]:
                 if not lvl in range(1,31):
-                    raise ValueError("Level must be between 1 and 30 for 1★ and 2★ cards.")
+                    raise ValueError("Level must be between 1 and 30 for 1* and 2* cards.")
             elif int(s) in [3,4,5]:
                 maxlevel = 50
                 t2 = False
@@ -103,7 +103,7 @@ class member(object):
             print()
             print('Member:', self._name)
             print('Name:', n)
-            print(s + '★')
+            print(s + '*')
             print('Empathy:', e1)
             print('Passion:', p1)
             print('Stamina:', s1)
@@ -295,9 +295,9 @@ class card(object):
         self.__statnamenb = dict(zip(statsnames, self._statsnbs))
     
     def profile(self):
-        '''Shows name, ★, level and stats of a card.'''
+        '''Shows name, *, level and stats of a card.'''
         print('Name: ' + self.name)
-        print(str(self._stars) + '★')
+        print(str(self._stars) + '*')
         print('LV', self.level)
         for name, nb in zip(statsnames, self._statsnbs):
             if name == self.getStrength():
@@ -726,7 +726,7 @@ class mission(object):
                 l2 = max([len(c[0].name) for c in self.__best_cards])
                 f1 = ('{:' + str(l1) + 's}').format(card.member)
                 f2 = ('{:' + str(l2) + 's}').format(card.name)
-                print(card.getStrengthSymbol() + f1 + ': ' + str(card._stars) + '★', f2, 'LV ' + '{:2s}'.format(str(card.level)) + '\n', sep=', ')
+                print(card.getStrengthSymbol() + f1 + ': ' + str(card._stars) + '*', f2, 'LV ' + '{:2s}'.format(str(card.level)) + '\n', sep=', ')
             self.__total += points
         if fct == 'p':
             print('Total (without group stats):', self.__total, 'pts\n')
@@ -1023,7 +1023,7 @@ If no criterion, put None or 0.'''
                 l2 = max([len(c[0].name) for c in self.__best_cards])
                 f1 = ('{:' + str(l1) + 's}').format(card.member)
                 f2 = ('{:' + str(l2) + 's}').format(card.name)
-                print(card.getStrengthSymbol() + f1 + ': ' + str(card._stars) + '★', f2, 'LV ' + '{:2s}'.format(str(card.level)) + '\n', sep=', ')
+                print(card.getStrengthSymbol() + f1 + ': ' + str(card._stars) + '*', f2, 'LV ' + '{:2s}'.format(str(card.level)) + '\n', sep=', ')
             self.__total += points
         if fct == 'p':
             print('Total (without group stats):', self.__total, 'pts\n')
