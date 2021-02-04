@@ -1432,6 +1432,8 @@ def msmainmenu():
             missionnb = input("Type the mission number you would like to play (e.g. 2-12)\nOR press Enter to return to main menu: ")
             if missionnb == '':
                 continue
+            if missionnb == "6-17":
+                print("\nI strongly suggest you to use the BTS World Calculator for 6-17.")
             while missionnb not in ms_m.keys() and missionnb != 'e':
                 print("\nNot a mission!\n")
                 missionnb = input("Type the mission number you would like to play (e.g. 2-12): ")
