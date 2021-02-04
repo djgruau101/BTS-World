@@ -1348,6 +1348,10 @@ ms5m19 = magicshop(5, 19, 1, 3, 4, 2, 6.85, 4.19, 0.27, 0.15, 'V')
 ms5m21 = magicshop(5, 21, 2, 1, 3, 4, 4.41, 3.69, 2.62, 1.19, 'V', "JK")
 #ms5m21.solve(98818, 3, 'f')
 
+ms6m5 = magicshop(6, 5, 4, 2, 1, 3, 2.67, 1.98, 0.49, 0.12, "JH", "JH")
+
+
+
 def getRollCall():
     it1 = 1
     if all([m.rollCalled() for m in members]):
@@ -1391,7 +1395,7 @@ def msmainmenu():
             "4-21":(ms4m21,363713,6), "5-2":(ms5m2,125863,4), "5-4":(ms5m4,52090,3),
             "5-6":(ms5m6,63436,2), "5-8":(ms5m8,144459,3), "5-10":(ms5m10,30118,4),
             "5-12":(ms5m12,199870,5), "5-15":(ms5m15,103582,4), "5-17":(ms5m17,202246,6),
-            "5-19":(ms5m19,235293,5), "5-21":(ms5m21,98818,3)}
+            "5-19":(ms5m19,235293,5), "5-21":(ms5m21,98818,3), "6-5":(ms6m5,49828,4)}
     print("Hi Manager-nim! Welcome to the Magic Shop Calculator ♥")
     print("So show me, I'll show you~")
     while True:
