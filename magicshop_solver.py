@@ -1437,7 +1437,7 @@ def msmainmenu():
             while missionnb not in ms_m.keys() and missionnb != 'e':
                 print("\nNot a mission!\n")
                 missionnb = input("Type the mission number you would like to play (e.g. 2-12): ")
-            marginchoice = ''
+            marginchoice = '3'
             while marginchoice not in ['1', '2', '']:
                 marginchoice = input("\n99% (1) or 100% (2)? (100% may crash for some missions)\nEnter margin choice OR press Enter to return to main menu: ")
                 speed = ''
