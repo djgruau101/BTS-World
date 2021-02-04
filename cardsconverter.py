@@ -32,7 +32,7 @@ exception = [empathyexception, passionexception, staminaexception, wisdomexcepti
 #print(sum([len(e) for e in exception]))
 ##########################################################################################
 manager = input("Manager name: ")
-fp = open("cards_{}.txt".format(manager))
+fp = open("cards_{}.txt".format(manager), 'r', encoding='utf-8')
 groupstats = list()
 c = list()
 names = list()
@@ -47,10 +47,14 @@ while not (len(curline.strip().split('\t')) == 2 and curline.strip().split('\t')
     curline = fp.readline()
 
 n = 0
-while curline != '': # process cards
+clock = False
+while curline != '' and not clock: # process cards
     member, star = curline.strip().split("\t")
     star = int(star[0])
     name = fp.readline().strip()
+    if chr(9200) in name:
+        clock = True
+        input("Make sure you turn off roll call before copy-pasting! Press Enter to exit. ")
     if name in ["Deep in Thought", "Pit-A-Pat", "Let's Go"]:
         name = initials[member]+name
     elif name == "All Eyes on Me":
@@ -69,20 +73,21 @@ while curline != '': # process cards
 
 fp.close()
 ### CONVERT POINTS TO LEVEL:
-fw = open("BTS_World_{}.txt".format(manager), 'w')
-levels = list()
-for p in groupstats:
-    if (p-103)%13 == 0: # level 50+
-        levels.append((p-103)//13+1)
-    elif (p-100)%13 == 0:
-        levels.append((p-100)//13+1)
-fw.write(str(levels)[1:-1]+"\n")
+if not clock:
+    fw = open("BTS_World_{}.txt".format(manager), 'w', encoding='utf-8')
+    levels = list()
+    for p in groupstats:
+        if (p-103)%13 == 0: # level 50+
+            levels.append((p-103)//13+1)
+        elif (p-100)%13 == 0:
+            levels.append((p-100)//13+1)
+    fw.write(str(levels)[1:-1]+"\n")
 
-for l in c:
-    for i in range(len(l)):
-        fw.write(str(l[i]))
-        if i != 8:
-            fw.write("; ")
-    fw.write('\n')
-yay = input("Successfully created BTS_World_{}.txt, press enter to exit. ".format(manager))
-fw.close()
+    for l in c:
+        for i in range(len(l)):
+            fw.write(str(l[i]))
+            if i != 8:
+                fw.write("; ")
+        fw.write('\n')
+    input("Successfully created BTS_World_{}.txt, press enter to exit. ".format(manager))
+    fw.close()
