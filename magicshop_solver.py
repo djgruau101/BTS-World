@@ -1439,13 +1439,15 @@ def msmainmenu():
                 missionnb = input("Type the mission number you would like to play (e.g. 2-12): ")
             marginchoice = ''
             while marginchoice not in ['1', '2']:
-                marginchoice = input("\n99% (1) or 100% (2)? (100% may crash for some missions)\nEnter margin choice: ")
+                marginchoice = input("\n99% (1) or 100% (2)? (100% may crash for some missions)\nEnter margin choice OR press Enter to return to main menu: ")
                 speed = ''
                 print()
                 if marginchoice == '1':
                     speed = 'f'
-                elif marginchoice == '2':
+                elif marginchoice in ['2','']:
                     speed = 100
+            if marginchoice == '':
+                continue
             ms_m[missionnb][0].solve(ms_m[missionnb][1], ms_m[missionnb][2], speed)
         elif option == '2':
             print("Change card level/view cards\n")
