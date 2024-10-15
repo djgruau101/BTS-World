@@ -13,4 +13,5 @@ In an April 2020 update, the game introduced the "Another Story Season 2" game m
 My biggest motivation for implementing this algorithm is that the [BTS World Calculator](https://btsworldcalculator.netlify.app/), which helps players evaluate their performance, requires users to manually test different card combinations for Magic Shop missions until they find a suitable one. The main issue with manually testing combinations is that players can't feasibly brute force through every possible card combination—it would take far too long. My algorithm provides a solution that not only finds an optimal combination more quickly but does so with greater accuracy, streamlining the process and improving efficiency for the player.
 
 **Features**
+
 cardsconverter.py: a script that takes the cards data from the BTS World Calculator and converts it into a text file containing more readable cards data for the main script (magicshop_solver.py)
