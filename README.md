@@ -1,16 +1,16 @@
-# BTS-World
+# BTS World: Magic Shop Calculator
 
-This is my own BTS World Calculator. It operates similarly to the one online,
-but with the added feature that my program can compute a valid combination for an Another Story season 2 mission.
-magicshop_solver.py is the main program, cardsconverter.py converts messy data from the
-BTS World Calculator into a cleaner data set called BTS_World_Managername.txt.
+**Description**
 
-magicshop_solver.py consists of a dynamic programming implementation of a variant of the subset sum problem.
-A mission can calculate the amount of points that each card gives when playing it.
-Given a set of cards, magicshop_solver.py attempts to find a subset of cards whose points sum up
-to a number close enough to a target score, by a 99% margin. There are two added constraints.
-For each mission, there is a maximum amount of cards that can be played, and some slots may require a
-card from a specific BTS member.
+This tool helps players of the BTS World mobile game manage their card collection and find optimal card combinations for different mission types. Initially built to solve regular missions, it was later expanded to handle the missions from the Another Story Season 2 (Magic Shop) game mode using a dynamic programming approach.
 
-Since the implementation is very expensive space-wise, my algorithm terminates when a combination is found,
-so that not the entire matrix needs to be filled.
+**Motivation**
+
+I started this project in July 2019, the summer before I started my undergraduate studies in Statistics and Computer Science at McGill University. It was the month after BTS World has come out and I wanted to use it as an opportunity to practice Object-Oriented Programming (OOP) in Python. While the design may not reflect polished software engineering, it helped me deepen my understanding of algorithms and Python fundamentals. By analyzing the components of BTS World, such as cards, members, and missions, I learned how to design classes and implement methods to reflect the game's mechanics. This approach enabled me to model the problem effectively, enhancing my understanding of software design.
+
+In an April 2020 update, the game introduced the "Another Story Season 2" game mode, also known as Magic Shop. Solving missions in this game mode requires a dynamic programming approach. I was introduced to dynamic programming during my Fall 2020 Algorithms and Data Structures course at McGill. Shortly after learning the concept, I began implementing this algorithm in my project.
+
+My biggest motivation for implementing this algorithm is that the [BTS World Calculator](https://btsworldcalculator.netlify.app/), which helps players evaluate their performance, requires users to manually test different card combinations for Magic Shop missions until they find a suitable one. The main issue with manually testing combinations is that players can't feasibly brute force through every possible card combination—it would take far too long. My algorithm provides a solution that not only finds an optimal combination more quickly but does so with greater accuracy, streamlining the process and improving efficiency for the player.
+
+**Features**
+cardsconverter.py: a script that takes the cards data from the BTS World Calculator and converts it into a text file containing more readable cards data for the main script (magicshop_solver.py)
