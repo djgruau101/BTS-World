@@ -15,4 +15,5 @@ My biggest motivation for implementing this algorithm is that the [BTS World Cal
 **Features**
 
 cardsconverter.py: a script that takes the cards data from the BTS World Calculator and converts it into a text file containing more readable cards data for the main script (magicshop_solver.py)
+
 gems.py: a script calculating the number of gems needed to obtain an event card for an ongoing event
