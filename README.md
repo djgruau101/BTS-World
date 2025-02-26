@@ -6,11 +6,11 @@ This tool allows players of the BTS World mobile game manage their card collecti
 
 ## Features
 
-- cardsconverter.py: a script that takes the cards data from the BTS World Calculator and converts it into a text file containing human-readable cards data for the main script (magicshop_solver.py).
+- `cardsconverter.py` — a script that takes the cards data from the BTS World Calculator and converts it into a .txt file containing human-readable cards data for the main script (`magicshop_solver.py`).
 
-- gems.py: a script that calculates the number of gems required to obtain an event card based on mission bonuses, days remaining, current items, and target items. The script assumes optimal play, with replaying the best mission on the last day to reach the target, where each replay costs 15 gems.
+- `gems.py` — a script that calculates the number of gems required to obtain an event card based on mission bonuses, days remaining, current items, and target items. The script assumes optimal play, with replaying the best mission on the last day to reach the target, where each replay costs 15 gems.
 
-- magicshop_solver.py: a script containing the logic for card management, BTS member management and mission solving.
+- `magicshop_solver.py` — a script containing the logic for card management, BTS member management and mission solving.
 
 ## Motivation
 
